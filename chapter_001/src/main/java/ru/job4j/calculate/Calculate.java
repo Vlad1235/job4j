@@ -1,7 +1,15 @@
 package ru.job4j.calculate;
 
-public class Calculate {
+/**
+ * Calculate.
+ * @author Vladislav (fn1235@bk.ru)
+ */
 
+public class Calculate {
+    /**
+     * Конструктор, вывод строки в консоль
+     * @param args - args
+     */
     public static void main(String[] args){
         System.out.println("Hello World");
     }
