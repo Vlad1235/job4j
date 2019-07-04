@@ -29,15 +29,8 @@ public class Triangle {
      * @return условие.
      */
     private boolean exist(double a, double c, double b) {
-        boolean check;
-       if(a>0 && c>0 && b>0) {
-            check = true;
-       } else {
-           check = false;
-       }
-        return check;
-
-    }
+            return a + b > c && a + c > b && c + b > a;
+        }
 
     /**
      * Метод должен вычислить площадь треугольника.
