@@ -25,9 +25,9 @@ public class BoardTest {
     public void whenPaintBoardWithWidthFiveAndHeightFourThenStringWithFiveColsAndFourRows() {
         //напишите здесь тест, проверяющий формирование доски 5 на 4.
         Board board2 = new Board();
-        String rs2 = board2.paint(5,4);
+        String rs2 = board2.paint(5, 4);
         String ln2 = System.lineSeparator();
-        assertThat(rs2,is(String.format("X X X%s X X %sX X X%s X X %s",ln2,ln2,ln2,ln2)));
+        assertThat(rs2, is(String.format("X X X%s X X %sX X X%s X X %s", ln2, ln2, ln2, ln2)));
     }
 }
 

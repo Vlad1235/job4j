@@ -27,6 +27,6 @@ public class MaxTest {
     public void whenRightIsEqualLeft() {
         Max max = new Max();
         int result = max.max(1, 1);
-        assertThat(result,is(1));
+        assertThat(result, is(1));
     }
 }
