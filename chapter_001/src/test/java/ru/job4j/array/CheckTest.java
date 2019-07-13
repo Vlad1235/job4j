@@ -21,10 +21,10 @@ public class CheckTest {
         assertThat(result, is(false));
     }
     @Test
-    public void whenDataNotMonoByFalseThenTrue() {
+    public void whenDataNotMonoThenFalse() {
         Check check = new Check();
-        boolean[] input = new boolean[] {false, false, false};
+        boolean[] input = new boolean[] {true, true, true,false};
         boolean result = check.mono(input);
-        assertThat(result, is(true));
+        assertThat(result, is(false));
     }
 }
