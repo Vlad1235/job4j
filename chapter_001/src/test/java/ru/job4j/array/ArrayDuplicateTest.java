@@ -19,4 +19,13 @@ public class ArrayDuplicateTest {
         String[] result = msv.arrayDuplicate(input);
         assertThat(result, arrayContainingInAnyOrder(output)); // не использовать Is, так как итоговая последовательность уникальных значений изначально не известна.
     }
+    @Test
+    public void whenRemoveDuplicatesThenArray() {
+        //напишите здесь тест, проверяющий удаление дубликатов строк из массива строк.
+        ArrayDuplicate msv = new ArrayDuplicate();
+        String[] input = new String[] {"Hello", "Hello", "Hello", "Hello", "Hello", "Hello", "Hello"};
+        String[] output = new String[] {"Hello"};
+        String[] result = msv.arrayDuplicate(input);
+        assertThat(result, arrayContainingInAnyOrder(output)); // не использовать Is, так как итоговая последовательность уникальных значений изначально не известна.
+    }
 }

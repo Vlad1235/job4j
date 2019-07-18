@@ -11,15 +11,16 @@ public class ArrayDuplicate {
 
     public String[] arrayDuplicate(String[] array) {
 
-        int noRepeat = array.length;
-        for (int cycl1 = 0; cycl1 < noRepeat; cycl1++) {
-            for (int cycl2 = 1; cycl2 < noRepeat - cycl1; cycl2++) {
-                if (array[cycl1].equals(array[cycl2])) {
-                    array[cycl1] = array[noRepeat - 1];
-                    noRepeat--;
+        int unique = array.length;
+        for (int out = 0; out < unique; out++) {
+            for (int in = out+1; in < unique; in++) {
+                if (array[out].equals(array[in])) {
+                    array[in] = array[unique - 1];
+                    unique--;
+                    in--;
                 }
             }
         }
-        return Arrays.copyOf(array, noRepeat);
+        return Arrays.copyOf(array, unique);
     }
 }
