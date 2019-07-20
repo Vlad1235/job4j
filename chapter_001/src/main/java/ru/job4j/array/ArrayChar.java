@@ -2,6 +2,9 @@ package ru.job4j.array;
 
 /**
  * Обертка над строкой.
+ *  * @author Vladislav (fn1235@bk.ru)
+ *  * @version 01
+ *  * @since 2019
  */
 public class ArrayChar {
 
@@ -14,9 +17,8 @@ public class ArrayChar {
         boolean result = true;
         char[] pref = prefix.toCharArray();
         char[] wrd = word.toCharArray();
-        // проверить. что массив data имеет первые элементы одинаковые с value
-            for (int index = 0; index <= pref.length - 1; index++) {
-                if (pref[index] == wrd[index]) {
+            for (int i = 0; i <= pref.length - 1; i++) { // проверить. что массив data имеет первые элементы одинаковые с value
+                if (pref[i] == wrd[i]) {
                     result = true;
                 } else {
                     result = false;

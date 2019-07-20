@@ -3,6 +3,8 @@ package ru.job4j.calculate;
 /**
  * Calculate.
  * @author Vladislav (fn1235@bk.ru)
+ * @version 01
+ * @since 2019
  */
 
 public class Calculate {

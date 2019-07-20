@@ -23,7 +23,7 @@ public class CheckTest {
     @Test
     public void whenDataNotMonoThenFalse() {
         Check check = new Check();
-        boolean[] input = new boolean[] {true, true, true,false};
+        boolean[] input = new boolean[] {true, true, true, false};
         boolean result = check.mono(input);
         assertThat(result, is(false));
     }
