@@ -17,26 +17,31 @@ public class Max {
     }
 
     /**
+     * Наибольшее из 3ех чисел.
+     * @param num1
+     * @param num2
+     * @param numb3
+     * @return
+     */
+    public int max(int num1,int num2,int numb3){
+        int tmp = num1 > num2 ? num1 : num2;
+        int result = numb3 > tmp ? numb3 : tmp;
+        return result;
+    }
+
+    /**
      * Наибольшее из 4ех чисел.
-     * @param numb1
-     * @param mumb2
+     * @param num1
+     * @param num2
      * @param numb3
      * @param numb4
-     * @return result
+     * @return
      */
-    public int max(int numb1,int mumb2,int numb3,int numb4){
-        int result = Math.max(numb4,Math.max(numb3,Math.max(numb1,mumb2)));
+    public int max(int num1,int num2,int numb3,int numb4){
+        int tmp1 = num1 > num2 ? num1 : num2;
+        int tmp2 = numb3 > tmp1 ? numb3 : tmp1;
+        int result = numb4 > tmp2 ? numb4 : tmp2;
         return result;
     }
-    /**
-     * Наибольшее из 3ех чисел.
-     * @param numb1
-     * @param mumb2
-     * @param numb3
-     * @return result
-     */
-    public int max(int numb1,int mumb2,int numb3){
-        int result = Math.max(numb3,Math.max(numb1,mumb2));
-        return result;
-    }
+
 }
