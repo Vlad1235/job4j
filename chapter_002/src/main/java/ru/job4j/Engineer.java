@@ -5,16 +5,14 @@ public class Engineer extends Profession {
     private int quantityOfProjects;
 
     public Engineer(int years, int quantity){
-        this(Profession);
         this.yearsAtUniversity = years;
         this.quantityOfProjects = quantity;
     }
 
-    public int getYearsAtUniversity(){
+    public int getYearsAtUniversity() {
         return this.yearsAtUniversity;
     }
-    public int getQuantityOfProjects(){
+    public int getQuantityOfProjects() {
         return this.quantityOfProjects;
     }
-
 }
