@@ -9,11 +9,10 @@ public class Engineer extends Profession {
         this.quantityOfProjects = quantity;
     }
 
-    public int getYearsAtUniversity(){
+    public int getYearsAtUniversity() {
         return this.yearsAtUniversity;
     }
-    public int getQuantityOfProjects(){
+    public int getQuantityOfProjects() {
         return this.quantityOfProjects;
     }
-
 }
