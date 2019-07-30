@@ -97,6 +97,7 @@ public class Tracker {
                 break;
             }
         }
+
         return result;
     }
 }
