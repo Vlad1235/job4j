@@ -2,6 +2,9 @@ package ru.job4j.tracker;
 
 import java.util.Objects;
 
+/**
+ * Заявка
+ */
 public class Item {
     private String id;
     private String name;
@@ -62,3 +65,4 @@ public class Item {
         return Objects.hash(id, name, decs, time);
     }
 }
+
