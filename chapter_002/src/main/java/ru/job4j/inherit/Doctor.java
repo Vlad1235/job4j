@@ -8,11 +8,12 @@ public class Doctor extends Profession {
         super(name, surname, education, birthday);
         this.experienceInField = experienceInField;
     }
+
     public int getExperienceInField() {
         return this.experienceInField;
     }
 
-    public void output(){
+    public void output() {
         super.output();
         System.out.println(getExperienceInField());
     }

@@ -5,7 +5,7 @@ public class Engineer extends Profession {
     private int quantityOfProjects;
 
     public Engineer(String name, String surname, long education, long birthday, int quantityOfProjects) {
-        super(name, surname, education,birthday);
+        super(name, surname, education, birthday);
         this.quantityOfProjects = quantityOfProjects;
     }
 
@@ -13,7 +13,7 @@ public class Engineer extends Profession {
         return this.quantityOfProjects;
     }
 
-    public void output(){
+    public void output() {
         super.output();
         System.out.println(getQuantityOfProjects());
     }

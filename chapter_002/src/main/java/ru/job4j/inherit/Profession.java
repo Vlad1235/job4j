@@ -16,17 +16,20 @@ public class Profession {
     public String getName() {
         return this.name;
     }
+
     public String getSurname() {
         return this.surname;
     }
+
     public long getEducation() {
         return this.education;
     }
+
     public long getBirthday() {
         return this.birthday;
     }
 
-    public void output(){
+    public void output() {
         System.out.println(getName() + getSurname() + getEducation() + getBirthday());
     }
 
