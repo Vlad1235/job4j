@@ -77,7 +77,7 @@ public class StartUI {
             } else if (SHOW.equals(answer)) {
                 this.tracker.findAll();
             } else if (EDIT.equals(answer)) {
-                this.editItem();
+                    this.editItem();
             } else if (DELETE.equals(answer)) {
                 this.deleteItem();
             } else if (FINDBYID.equals(answer)) {
@@ -106,7 +106,6 @@ public class StartUI {
      * Метод реализует редактирование заявки, ID которой укажет пользователь.
      */
     private void editItem() {
-        Tracker tracker = new Tracker();
         System.out.println("------------ Редактирование заявки --------------");
         String idOld = this.input.ask("Введите ID заявки :");
         String description = this.input.ask("Введите описание: ");
@@ -125,7 +124,6 @@ public class StartUI {
      * Метод реализует удаление заявки, которую укажет пользователь.
      */
     private void deleteItem() {
-        Tracker tracker = new Tracker();
         System.out.println("------------ Удаление заявки --------------");
         String idOld = this.input.ask("Введите ID заявки :");
         boolean result = tracker.delete(idOld);
@@ -140,7 +138,6 @@ public class StartUI {
      * Метод реализует поиск заявки по ID, который укажет пользователь.
      */
     private void searchByIDItem() {
-        Tracker tracker = new Tracker();
         System.out.println("------------ Поиск заявки --------------");
         String nameOld = this.input.ask("Введите ID заявки :");
         Item item = tracker.findById(nameOld);
@@ -155,7 +152,6 @@ public class StartUI {
      * Метод реализует поиск заявки по имени.
      */
     private void searchItem() {
-        Tracker tracker = new Tracker();
         System.out.println("------------ Поиск заявки --------------");
         String nameOld = this.input.ask("Введите имя заявки :");
         Item[] itemsFound = tracker.findByName(nameOld);
@@ -178,7 +174,6 @@ public class StartUI {
 
     /**
      * Запуск программы.
-     *
      * @param args
      */
     public static void main(String[] args) {
