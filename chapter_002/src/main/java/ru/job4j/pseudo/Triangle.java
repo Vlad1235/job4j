@@ -1,0 +1,13 @@
+package ru.job4j.pseudo;
+
+public class Triangle implements Shape {
+
+    public String draw() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("   x   \n");
+        sb.append("  x x  \n");
+        sb.append(" x   x \n");
+        sb.append("xxxxxxx");
+        return sb.toString();
+    }
+}
