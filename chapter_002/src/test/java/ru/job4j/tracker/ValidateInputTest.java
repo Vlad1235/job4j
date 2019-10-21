@@ -3,8 +3,8 @@ package ru.job4j.tracker;
 import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import static org.hamcrest.*;
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
 
 
 public class ValidateInputTest {
@@ -17,7 +17,7 @@ public class ValidateInputTest {
                 new StubInput(new String[] {"invalid", "1"})
         );
         input.askInt("Enter", 1);
-        asserThat(mem, is(String.format("Please enter validate data again.%n")));
+        assertThat(mem.toString(), is(String.format("Please enter validate data again.%s",System.lineSeparator())));
         System.setOut(out);
     }
 }
