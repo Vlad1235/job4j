@@ -67,7 +67,7 @@ public class StartUITest {
                 new String[] {"0"}
         );
         StubAction action = new StubAction();
-        new StartUI().init(input, new Tracker(), new UserAction[] { action });
+        new StartUI(new ConsoleInput(), new Tracker()).init();
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
                 .add("Menu.")
                 .add("0. Stub action")
@@ -75,7 +75,6 @@ public class StartUITest {
         assertThat(new String(out.toByteArray()), is(expect));
         System.setOut(def);
     }
-
     @Test
     public void whenExit() {
         StubInput input = new StubInput(
