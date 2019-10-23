@@ -67,28 +67,38 @@ public class StartUI {
     /**
      * Основой цикл программы.
      */
-    public void init() {
-        boolean exit = false;
-        while (!exit) {
-            this.showMenu();
-            String answer = this.input.ask("Введите пункт меню : ");
-            if (ADD.equals(answer)) {
-                this.createItem();
-            } else if (SHOW.equals(answer)) {
-                this.tracker.findAll();
-            } else if (EDIT.equals(answer)) {
-                    this.editItem();
-            } else if (DELETE.equals(answer)) {
-                this.deleteItem();
-            } else if (FINDBYID.equals(answer)) {
-                this.searchByIDItem();
-            } else if (FINDBYNAME.equals(answer)) {
-                this.searchItem();
-            } else if (EXIT.equals(answer)) {
-                exit = true;
-            }
+//    public void init() {
+//        boolean exit = false;
+//        while (!exit) {
+//            this.showMenu();
+//            String answer = this.input.ask("Введите пункт меню : ");
+//            if (ADD.equals(answer)) {
+//                this.createItem();
+//            } else if (SHOW.equals(answer)) {
+//                this.tracker.findAll();
+//            } else if (EDIT.equals(answer)) {
+//                    this.editItem();
+//            } else if (DELETE.equals(answer)) {
+//                this.deleteItem();
+//            } else if (FINDBYID.equals(answer)) {
+//                this.searchByIDItem();
+//            } else if (FINDBYNAME.equals(answer)) {
+//                this.searchItem();
+//            } else if (EXIT.equals(answer)) {
+//                exit = true;
+//            }
+//        }
+//    }
+        public void init(Input input, Tracker tracker, UserAction[] actions) {
+        boolean run = true;
+        while (run) {
+            this.showMenu(actions);
+            int select = input.askInt("Select: ");
+            UserAction action = actions[select];
+            run = action.execute(input, tracker);
         }
     }
+
 
     /**
      * Метод реализует добавленя новой заявки в хранилище.
@@ -101,6 +111,15 @@ public class StartUI {
         this.tracker.add(item);
         System.out.println("------------ Новая заявка с getId : " + item.getId() + "-----------");
     }
+    /*
+        public static void createItem(Input input, Tracker tracker) {
+        System.out.println("=== Create a new Item ====");
+        System.out.print("Enter name: ");
+        String name = input.askStr("");
+        Item item = new Item(name);
+        tracker.add(item);
+         }
+     */
 
     /**
      * Метод реализует редактирование заявки, ID которой укажет пользователь.
@@ -160,23 +179,39 @@ public class StartUI {
         }
     }
 
-    private void showMenu() {
-        System.out.println("Меню.");
-        System.out.println("0. Add new Item");
-        System.out.println("1. Show all items");
-        System.out.println("2. Edit item");
-        System.out.println("3. Delete item");
-        System.out.println("4. Find item by Id");
-        System.out.println("5. Find items by name");
-        System.out.println("6. Exit Program");
-        System.out.println("Select:");
+//    private void showMenu() {
+//        System.out.println("Меню.");
+//        System.out.println("0. Add new Item");
+//        System.out.println("1. Show all items");
+//        System.out.println("2. Edit item");
+//        System.out.println("3. Delete item");
+//        System.out.println("4. Find item by Id");
+//        System.out.println("5. Find items by name");
+//        System.out.println("6. Exit Program");
+//        System.out.println("Select:");
+//    }
+    private void showMenu(UserAction[] actions) {
+        System.out.println("Menu.");
+        for (int index = 0; index < actions.length; index++) {
+            System.out.println(index + ". " + actions[index].name());
+        }
     }
 
     /**
      * Запуск программы.
      * @param args
      */
-    public static void main(String[] args) {
-        new StartUI(new ConsoleInput(), new Tracker()).init();
+//    public static void main(String[] args) {
+//        new StartUI(new ConsoleInput(), new Tracker()).init();
+//    }
+//    /*
+        public static void main(String[] args) {
+        Input input = new ConsoleInput();
+        Tracker tracker = new Tracker();
+        UserAction[] actions = {
+                new CreateAction()
+        };
+        new StartUI().init(input, tracker, actions);
     }
+
 }
