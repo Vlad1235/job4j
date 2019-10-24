@@ -6,6 +6,7 @@ package ru.job4j.tracker;
 public class AddItem extends BaseAction {
 
     public AddItem(int key, String name) {
+
         super(key, name);
     }
 
@@ -15,7 +16,7 @@ public class AddItem extends BaseAction {
     }
 
     @Override
-    public void execute(Input input, Tracker tracker) {
+    public boolean execute(Input input, Tracker tracker) {
         String name = input.ask("Enter name:");
         String desc = input.ask("Enter description:");
         tracker.add(new Item(name, desc));

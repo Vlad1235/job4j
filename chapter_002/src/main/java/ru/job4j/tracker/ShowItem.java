@@ -1,6 +1,6 @@
 package ru.job4j.tracker;
 
-пше static class ShowItem implements UserAction {
+public static class ShowItem implements UserAction {
     @Override
     public int key() {
         return 1;
