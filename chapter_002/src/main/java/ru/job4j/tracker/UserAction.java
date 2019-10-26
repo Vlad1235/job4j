@@ -19,6 +19,7 @@ package ru.job4j.tracker;
  *Главный интерфейс для всех Action. Это начало!
  */
 public interface UserAction {
-    String name();
-    boolean execute(Input input, Tracker object2);
+    int key();
+    String info();
+    void execute(Input input, Tracker tracker);
 }

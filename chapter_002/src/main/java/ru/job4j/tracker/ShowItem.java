@@ -1,18 +1,17 @@
 package ru.job4j.tracker;
 
-public static class ShowItem implements UserAction {
+ public class ShowItem extends BaseAction {
     @Override
     public int key() {
         return 1;
     }
 
     @Override
-    public boolean execute(Input input, Tracker tracker) {
+    public void execute(Input input, Tracker tracker) {
         for (Item item : tracker.findAll()) {
             System.out.println(String.format("Name: %s| Desc: %s| Id: %s",
                     item.getName(), item.getDecs(), item.getId()));
         }
-        return true;
     }
 
     @Override

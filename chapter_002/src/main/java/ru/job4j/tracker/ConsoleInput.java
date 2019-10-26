@@ -26,7 +26,7 @@ public class ConsoleInput implements Input {
      * @return
      */
     @Override
-    public int askInt(String question, int max) {
+    public int askInt(String question, int max) { //В методе askInt(String question, int max) мы проверяет диапазон и выкидываем исключение
         int select = askInt(question);
         if (select < 0 || select >= max) {
             throw new IllegalStateException(String.format("Out of about %s > [0, %s]", select, max));
