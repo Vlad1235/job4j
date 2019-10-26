@@ -7,11 +7,12 @@ public static class ShowItem implements UserAction {
     }
 
     @Override
-    public void execute(Input input, Tracker tracker) {
+    public boolean execute(Input input, Tracker tracker) {
         for (Item item : tracker.findAll()) {
             System.out.println(String.format("Name: %s| Desc: %s| Id: %s",
-                    item.getName(), item.getDescription(), item.getId()));
+                    item.getName(), item.getDecs(), item.getId()));
         }
+        return true;
     }
 
     @Override

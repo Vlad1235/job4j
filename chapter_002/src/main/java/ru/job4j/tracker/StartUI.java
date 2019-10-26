@@ -2,6 +2,14 @@ package ru.job4j.tracker;
 
 
 /**
+ * консольное приложение для работы с классом Tracker.
+ *
+ *  * Запомните общее правило!
+ *  * Если класс зависит от внешних ресурсов: система ввода-вывода, база данных, веб-сервисы, эти зависимости нужно разрывать.
+ *  * Мы помним, что разорвать эти классы мы может через введение интерфейса.
+ *  * Мы уже создали интерфейс ru.job4j.tracker.Input, который отвечает за ввод данных от пользователя.
+ *  * Этим интерфейсом мы и будем заменять Scanner.
+ *
  * Vladislav (fn1235@bk.ru)
  *
  * @version $Id$
@@ -43,29 +51,19 @@ public class StartUI {
      * Константа для выхода из цикла.
      */
     private static final String EXIT = "6";
-    /**
-     * Получение данных от пользователя.
-     */
-    private final Input input;
 
-    /**
-     * Хранилище заявок.
-     */
-    private final Tracker tracker;
-
-    /**
-     * Конструтор инициализирующий поля.
-     *
-     * @param input   ввод данных.
-     * @param tracker хранилище заявок.
-     */
-    public StartUI(Input input, Tracker tracker) {
-        this.input = input;
-        this.tracker = tracker;
-    }
+    public StartUI(){}
 
     /**
      * Основой цикл программы.
+     *
+     * Давайте по шагам опишем, что тут происходит.
+     * 0. Выводим список меню для выбора пользователем
+     * 1. Мы получаем от пользователя пункт меню.
+     * 2. Этот параметр мы используем в качестве индекса в массиве actions.
+     * 3. Далее мы получаем из массива один из объектов UserAction (CreateAction, ReplaceAction ....);
+     * 4. У полученного объекта вызываем метод execute с передачей параметров input и tracker.
+     *
      */
         public void init(Input input, Tracker tracker, UserAction[] actions) {
         boolean run = true;
@@ -74,77 +72,6 @@ public class StartUI {
             int select = input.askInt("Select: ");
             UserAction action = actions[select];
             run = action.execute(input, tracker);
-        }
-    }
-
-
-    /**
-     * Метод реализует добавленя новой заявки в хранилище.
-     */
-        public static void createItem(Input input, Tracker tracker) {
-            System.out.println("=== Create a new Item ====");
-            System.out.print("Enter name: ");
-            String name = input.ask("");
-            Item item = new Item(name);
-            tracker.add(item);
-        }
-
-
-    /**
-     * Метод реализует редактирование заявки, ID которой укажет пользователь.
-     */
-    private void editItem() {
-        System.out.println("------------ Редактирование заявки --------------");
-        String idOld = this.input.ask("Введите ID заявки :");
-        String description = this.input.ask("Введите описание: ");
-        String nameEdited = this.input.ask("Введите новое имя заявки :");
-        Item next = new Item(nameEdited, description, System.currentTimeMillis());
-        next.setId(idOld);
-        if (tracker.replace(next.getId(), next)) {
-            System.out.println("------------ Заявка обновлена. --------------");
-            System.out.println("------------ Новое имя заявки : " + next.getName() + "-----------");
-        } else {
-            System.out.println("------------ Заявка не найдена. --------------");
-        }
-    }
-
-    /**
-     * Метод реализует удаление заявки, которую укажет пользователь.
-     */
-    private void deleteItem() {
-        System.out.println("------------ Удаление заявки --------------");
-        String idOld = this.input.ask("Введите ID заявки :");
-        boolean result = tracker.delete(idOld);
-        if (result) {
-            System.out.println("------------ Заявка : " + idOld + "--успешно удалена.-----");
-        } else {
-            System.out.println("------------ Проверить корректность ID заявки -----");
-        }
-    }
-
-    /**
-     * Метод реализует поиск заявки по ID, который укажет пользователь.
-     */
-    private void searchByIDItem() {
-        System.out.println("------------ Поиск заявки --------------");
-        String nameOld = this.input.ask("Введите ID заявки :");
-        Item item = tracker.findById(nameOld);
-        if (item != null) {
-            System.out.println("------------ Заявка : " + item.getName() + "-----найдена.-----");
-        } else {
-            System.out.println("------------ Заявка не найдена.-----");
-        }
-    }
-
-    /**
-     * Метод реализует поиск заявки по имени.
-     */
-    private void searchItem() {
-        System.out.println("------------ Поиск заявки --------------");
-        String nameOld = this.input.ask("Введите имя заявки :");
-        Item[] itemsFound = tracker.findByName(nameOld);
-        for (int index = 0; index < itemsFound.length; index++) {
-            System.out.println("------------ Заявка : " + itemsFound[index].getName() + "-----найдена.-----");
         }
     }
 
@@ -160,7 +87,7 @@ public class StartUI {
      * @param args
      */
         public static void main(String[] args) {
-        Input input = new ConsoleInput();
+        Input input = new ConsoleInput(); // разорвана прямая связь с классом Scanner
         Tracker tracker = new Tracker();
         UserAction[] actions = {
                 new CreateAction()

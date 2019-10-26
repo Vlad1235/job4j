@@ -3,6 +3,8 @@ package ru.job4j.tracker;
 import java.util.Arrays;
 
 /**
+ * Класс трекер - это обертка над массивом. Данный класс используется, как ХРАНИЛИЩЕ ЗАЯВОК
+ *
  * Vladislav (fn1235@bk.ru)
  *
  * @version $Id$
@@ -51,6 +53,7 @@ public class Tracker {
         for (int index = 0; index < this.position; index++) {
             if (this.items[index].getId().equals(id)) {
                 this.items[index] = item;
+                item.setId(id);
                 result = true;
                 break;
             }
@@ -68,6 +71,7 @@ public class Tracker {
         boolean result = false;
         for (int index = 0; index < this.position; index++) {
             if (this.items[index].getId().equals(id)) {
+                items[index] = null;
                 System.arraycopy(this.items, index + 1, this.items, index, this.items.length - index - 1);
                 position--;
                 result = true;

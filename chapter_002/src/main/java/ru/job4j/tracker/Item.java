@@ -3,7 +3,7 @@ package ru.job4j.tracker;
 import java.util.Objects;
 
 /**
- * Заявка
+ * Класс - шаблон заявки
  */
 public class Item {
     private String id;
@@ -14,7 +14,7 @@ public class Item {
     public Item(String name, String decs, long time) {
         this.name = name;
         this.decs = decs;
-        this.time = time;
+        this.time = System.currentTimeMillis();
     }
 
     public String getId() {

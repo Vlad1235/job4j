@@ -2,6 +2,10 @@ package ru.job4j.tracker;
 
 import java.util.Scanner;
 
+/**
+ * класс, который реализует интерфейс Input и который внутри будет работать с Scanner.
+ * Этим мы разрываем прямую связь между классом StartUI и системой ввода-вывода
+ */
 public class ConsoleInput implements Input {
 
     public String ask(String question) {
