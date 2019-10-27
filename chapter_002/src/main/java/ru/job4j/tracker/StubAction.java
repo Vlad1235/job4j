@@ -18,9 +18,8 @@ public class StubAction implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, Tracker tracker) {
+    public void execute(Input input, Tracker tracker) {
         call = true;
-        return false;
     }
 
     public boolean isCall() { //По этому полю мы будет проверять выбрал ли пользователь пункт меню или нет

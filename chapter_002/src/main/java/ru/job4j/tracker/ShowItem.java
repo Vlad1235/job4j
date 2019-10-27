@@ -1,7 +1,12 @@
 package ru.job4j.tracker;
 
  public class ShowItem extends BaseAction {
-    @Override
+
+     protected ShowItem(int key, String name){
+         super(key,name);
+     }
+
+     @Override
     public int key() {
         return 1;
     }

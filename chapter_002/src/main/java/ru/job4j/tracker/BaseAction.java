@@ -10,7 +10,7 @@ package ru.job4j.tracker;
  * Теперь мы можем использовать этот класс для реализации действий.
  * Например, мы можем переписать класс AddAction
  */
-public class BaseAction implements UserAction {
+public abstract class BaseAction implements UserAction {
     private final int key;
     private final String name;
 

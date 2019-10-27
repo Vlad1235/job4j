@@ -1,18 +1,20 @@
 package ru.job4j.tracker;
 
-public class EditAction extends BaseAction {
-    Input input;
-    Tracker tracker;
-
     /**
      * Метод реализует редактирование заявки, ID которой укажет пользователь.
      */
-    private void editItem() {
+public class EditAction extends BaseAction {
+
+    protected EditAction(int key, String name){
+        super(key,name);
+    }
+
+    public void execute(Input input, Tracker tracker) {
         System.out.println("------------ Редактирование заявки --------------");
-        String idOld = this.input.ask("Введите ID заявки :");
-        String description = this.input.ask("Введите описание: ");
-        String nameEdited = this.input.ask("Введите новое имя заявки :");
-        Item next = new Item(nameEdited, description, System.currentTimeMillis());
+        String idOld = input.ask("Введите ID заявки :");
+        String description = input.ask("Введите описание: ");
+        String nameEdited = input.ask("Введите новое имя заявки :");
+        Item next = new Item(nameEdited, description);
         next.setId(idOld);
         if (tracker.replace(next.getId(), next)) {
             System.out.println("------------ Заявка обновлена. --------------");
