@@ -13,7 +13,7 @@ public class StubAction implements UserAction {
     private boolean call = false;
 
     @Override
-    public String name() {
+    public String info() {
         return "Stub action";
     }
 

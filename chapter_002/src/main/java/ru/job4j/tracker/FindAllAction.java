@@ -8,7 +8,7 @@ public class FindAllAction extends BaseAction {
 
 
     @Override
-    public String name() {
+    public String info() {
         return "Find all.";
     }
 

@@ -21,8 +21,6 @@ package ru.job4j.tracker;
  Создадим поле, которое будет содержать источник данных. В данном случае он описывается нашим интерфейсом Input.
  Давайте посмотри на получившийся код.
 
-
-
  */
 public class ValidateInput implements Input {
     private final Input input;
@@ -37,28 +35,20 @@ public class ValidateInput implements Input {
     }
 
     @Override
-    public int askInt(String question) {
-        boolean invalid = true;
-        int value = -1;
-        if (!invalid){
-            throw new NumberFormatException("Please enter validate data again ");
-        }
-        value = super.askInt(question);
-        invalid = false;
-        return value;
-    }
-    @Override
     public int askInt(String question, int max) {
         boolean invalid = true;
         int value = -1;
-        if(!invalid){
-            throw new IllegalStateException("Please select key from menu ");
-            throw new NumberFormatException("Please enter validate data again ");
-        }
-        value = super.askInt(question, max);
-        invalid = false;
+        do {
+            try{
+                    value = input.askInt(question, max);
+                    invalid = false;
+            } catch (IllegalStateException e){
+                System.out.println("Please select key from menu ");
+            } catch (NumberFormatException e){
+                System.out.println("Please enter validate data again ");
+            }
+        } while (!invalid);
         return value;
-
 
         /*
 Как мы видим, мы произвели минимальные изменения. Но это изменения позволили избавиться от связи с классом ConsoleInput.
