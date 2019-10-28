@@ -39,16 +39,23 @@ public class ValidateInput implements Input {
         boolean invalid = true;
         int value = -1;
         do {
-            try{
-                    value = input.askInt(question, max);
-                    invalid = false;
-            } catch (IllegalStateException e){
+            try {
+                value = input.askInt(question, max);
+                invalid = false;
+            } catch (IllegalStateException e) {
                 System.out.println("Please select key from menu ");
-            } catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 System.out.println("Please enter validate data again ");
             }
         } while (!invalid);
         return value;
+    }
+        @Override
+        public int askInt(String question) {
+            return Integer.valueOf(ask(question));
+        }
+}
+
 
         /*
 Как мы видим, мы произвели минимальные изменения. Но это изменения позволили избавиться от связи с классом ConsoleInput.
@@ -63,5 +70,4 @@ public class ValidateInput implements Input {
 Все выше описанное есть шаблон проектирования Декоратор.
 Смысл Декоратора - добавление нового поведение в уже существующее поведение.
          */
-    }
-}
+

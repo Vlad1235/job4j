@@ -50,7 +50,6 @@ public class StubInput implements Input {
         return Integer.valueOf(ask(question));
     }
 
-
     @Override
     public int askInt(String question, int max) {
         return askInt(question);
