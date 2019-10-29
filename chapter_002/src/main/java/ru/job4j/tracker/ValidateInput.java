@@ -36,12 +36,12 @@ public class ValidateInput implements Input {
 
     @Override
     public int askInt(String question, int max) {
-        boolean invalid = true;
+        boolean invalid = false;
         int value = -1;
         do {
             try {
                 value = input.askInt(question, max);
-                invalid = false;
+                invalid = true;
             } catch (IllegalStateException e) {
                 System.out.println("Please select key from menu ");
             } catch (NumberFormatException e) {
