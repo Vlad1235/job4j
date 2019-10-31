@@ -27,18 +27,26 @@ import java.util.Arrays;
  */
 public class Machine {
     private final int[] COINS = {10, 5, 2, 1}; // типы монет номиналом
+    public int[] rsl = new int[100];
+    int size = 0;
+    int dif;
 
-    public int[] change(int money, int price) {
-        int[] rsl = new int[100]; // весь возможный вариант сдачи
-        int size = 0;
-        int dif = money - price;
-        for(int coin:COINS){
-            if (dif-COINS[coin]>0){
-                dif-=COINS[coin];
-                rsl[size] = COINS[size];
+    public int[] change(int money,int price){
+        dif = money-price;
+        for (int index = 0;index<COINS.length;index++){
+            if (dif-COINS[index]>0){
+                dif-=COINS[index];
+                rsl[size]=COINS[index];
                 size++;
             }
         }
-        return Arrays.copyOf(rsl, size);
-        }
+        return Arrays.copyOf(rsl,size);
+    }
+
+    public static void main(String[] args) {
+        Machine machine = new Machine();
+        int[] fnl = machine.change(100,35);
+        System.out.print(Arrays.toString(fnl));
+    }
+
 }
