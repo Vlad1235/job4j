@@ -7,6 +7,10 @@ public class DeleteAction extends BaseAction {
     protected DeleteAction(int key, String name){
         super(key,name);
     }
+    @Override
+    public String info() {
+        return "=== Delete Item ====";
+    }
 
     @Override
     public void execute(Input input,Tracker tracker) {

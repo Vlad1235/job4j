@@ -9,6 +9,11 @@ public class EditAction extends BaseAction {
         super(key,name);
     }
 
+    @Override
+    public String info() {
+        return "==== Edit Item ====";
+    }
+
     public void execute(Input input, Tracker tracker) {
         System.out.println("------------ Редактирование заявки --------------");
         String idOld = input.ask("Введите ID заявки :");

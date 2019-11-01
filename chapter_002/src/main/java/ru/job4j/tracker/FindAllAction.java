@@ -9,7 +9,7 @@ public class FindAllAction extends BaseAction {
 
     @Override
     public String info() {
-        return "Find all.";
+        return "==== Find all ====";
     }
 
     @Override

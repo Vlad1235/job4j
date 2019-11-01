@@ -21,7 +21,7 @@ package ru.job4j.tracker;
 
     @Override
     public String info() {
-        return String.format("%s. %s", this.key(), "show all item.");
+        return String.format("%s. %s", this.key(), "====Show all Item====");
     }
 
 }

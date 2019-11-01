@@ -9,6 +9,11 @@ public class SearchByIdActon extends BaseAction {
         super(key,name);
     }
 
+    @Override
+    public String info() {
+        return "=== Search Item by ID====";
+    }
+
     public void execute(Input input, Tracker tracker) {
         System.out.println("------------ Поиск заявки --------------");
         String nameOld = input.ask("Введите ID заявки :");
