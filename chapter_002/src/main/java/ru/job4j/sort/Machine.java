@@ -33,8 +33,8 @@ public class Machine {
 
     public int[] change(int money,int price){
         dif = money-price;
-        for (int index = 0;index<COINS.length;index++){
-            if (dif-COINS[index]>0){
+        for (int index = 0;index < COINS.length && dif>0; index++){
+            while (dif-COINS[index]>=0){
                 dif-=COINS[index];
                 rsl[size]=COINS[index];
                 size++;
