@@ -13,7 +13,7 @@ public class DeleteAction extends BaseAction {
     }
 
     @Override
-    public void execute(Input input,Tracker tracker) {
+    public boolean execute(Input input,Tracker tracker) {
         System.out.println("------------ Удаление заявки --------------");
         String idOld = input.ask("Введите ID заявки :");
         boolean result = tracker.delete(idOld);
@@ -22,5 +22,6 @@ public class DeleteAction extends BaseAction {
         } else {
             System.out.println("------------ Проверить корректность ID заявки -----");
         }
+        return result;
     }
 }

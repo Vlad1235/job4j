@@ -14,7 +14,7 @@ public class EditAction extends BaseAction {
         return "==== Edit Item ====";
     }
 
-    public void execute(Input input, Tracker tracker) {
+    public boolean execute(Input input, Tracker tracker) {
         System.out.println("------------ Редактирование заявки --------------");
         String idOld = input.ask("Введите ID заявки :");
         String description = input.ask("Введите описание: ");
@@ -27,5 +27,6 @@ public class EditAction extends BaseAction {
         } else {
             System.out.println("------------ Заявка не найдена. --------------");
         }
+        return true;
     }
 }

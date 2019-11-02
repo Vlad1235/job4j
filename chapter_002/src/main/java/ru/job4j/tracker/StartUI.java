@@ -17,41 +17,6 @@ package ru.job4j.tracker;
  */
 public class StartUI {
 
-    /**
-     * Константа меню для добавления новой заявки.
-     */
-    private static final String ADD = "0";
-
-    /**
-     * Константа меню для вывода всех заявок.
-     */
-    private static final String SHOW = "1";
-
-    /**
-     * Константа меню для редактирования заявки.
-     */
-    private static final String EDIT = "2";
-
-    /**
-     * Константа меню для удаления заявки.
-     */
-    private static final String DELETE = "3";
-
-    /**
-     * Константа меню для поиска по ID.
-     */
-    private static final String FINDBYID = "4";
-
-    /**
-     * Константа меню для поиска по ID.
-     */
-    private static final String FINDBYNAME = "5";
-
-    /**
-     * Константа для выхода из цикла.
-     */
-    private static final String EXIT = "6";
-
     public StartUI(){}
 
     /**
@@ -71,7 +36,7 @@ public class StartUI {
             this.showMenu(actions);
             int select = input.askInt("Select: ",actions.length);
             UserAction action = actions[select];
-            action.execute(input, tracker);
+            run = action.execute(input, tracker);
         }
         return run;
     }
@@ -92,12 +57,13 @@ public class StartUI {
         Input validate = new ValidateInput(input);
             Tracker tracker = new Tracker();
         UserAction[] actions = {
-                new CreateAction(0,"Create item"),
-                new DeleteAction(1,"Delete item"),
-                new EditAction(2,"Edit item"),
-                new FindAllAction(3,"FindAll"),
-                new SearchByIdActon(4,"SearchById"),
-                new ShowItem(5,"ShowItem"),
+                new CreateAction(1,"Create item"),
+                new DeleteAction(2,"Delete item"),
+                new EditAction(3,"Edit item"),
+                new FindAllAction(4,"FindAll"),
+                new SearchByIdActon(5,"SearchById"),
+                new ShowItem(6,"ShowItem"),
+                new ExitProgram(0,"Exit Program")
         };
         new StartUI().init(validate, tracker, actions);
     }

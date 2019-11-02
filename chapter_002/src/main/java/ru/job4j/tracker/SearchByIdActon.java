@@ -14,7 +14,7 @@ public class SearchByIdActon extends BaseAction {
         return "=== Search Item by ID====";
     }
 
-    public void execute(Input input, Tracker tracker) {
+    public boolean execute(Input input, Tracker tracker) {
         System.out.println("------------ Поиск заявки --------------");
         String nameOld = input.ask("Введите ID заявки :");
         Item item = tracker.findById(nameOld);
@@ -23,5 +23,6 @@ public class SearchByIdActon extends BaseAction {
         } else {
             System.out.println("------------ Заявка не найдена.-----");
         }
+        return true;
     }
 }

@@ -12,11 +12,12 @@ public class CreateAction extends BaseAction {
     }
 
     @Override
-    public void execute(Input input, Tracker tracker) {
+    public boolean execute(Input input, Tracker tracker) {
         System.out.print("Enter name: ");
         String name = input.ask("Enter name: ");
         String decs = input.ask("Enter desc: ");
         Item item = new Item(name,decs);
         tracker.add(item);
+        return true;
     }
 }

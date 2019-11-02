@@ -10,9 +10,10 @@ public class AddItem extends BaseAction {
     }
 
     @Override
-    public void execute(Input input, Tracker tracker) {
+    public boolean execute(Input input, Tracker tracker) {
         String name = input.ask("Enter name:");
         String decs = input.ask("Enter description:");
         tracker.add(new Item(name, decs));
+        return true;
     }
 }
