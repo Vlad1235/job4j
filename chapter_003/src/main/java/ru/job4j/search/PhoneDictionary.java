@@ -1,9 +1,7 @@
 package ru.job4j.search;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
 
 /**
  *  Программа поиска в списке
@@ -24,14 +22,18 @@ public class PhoneDictionary {
      * @param key Ключ поиска.
      * @return Список подощедщих пользователей.
      */
-    public List<Person> find(String key) throws IOException {
-        List<Person> result = new ArrayList<>();
-        for (Person person:persons){
-            if (person.getAddress().contains(key)&&person.getName().contains(key)&&person.getPhone().contains(key)&&person.getSurname().contains(key)){
-                return result;
+    public List<Person> find(String key) {
+        List<Person> result = new ArrayList<Person>();
+        for (int in = 0; in < persons.size();in++) {
+            if (persons.get(in).getSurname().contains(key)&&
+                    persons.get(in).getPhone().contains(key)&&
+                    persons.get(in).getName().contains(key)&&
+                    persons.get(in).getAddress().contains(key)) {
+                 result.add(persons.get(in));
             } else {
-                throw new NoSuchElementException();
+                result.isEmpty();
             }
         }
+        return result;
     }
 }
