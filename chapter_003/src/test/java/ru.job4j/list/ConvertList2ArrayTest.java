@@ -11,8 +11,7 @@ public class ConvertList2ArrayTest {
         ConvertList2Array list = new ConvertList2Array();
         int[][] result = list.toArray2(
                 Arrays.asList(1, 2, 3, 4, 5, 6, 7),
-                3
-        );
+                3);
         int[][] expect = {
                 {1, 2, 3},
                 {4, 5, 6},
