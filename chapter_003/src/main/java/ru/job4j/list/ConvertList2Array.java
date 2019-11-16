@@ -11,20 +11,18 @@ import java.util.List;
  * с разбиением на 3 строки должен получиться двумерный массив {{1, 2, 3} {4, 5, 6} {7, 0 ,0}}
  */
 public class ConvertList2Array {
-
     public int[][] toArray2(List<Integer> list, int rows) {
-        int cells = ((list.size() / rows) + 1);
+        int cells = (int) Math.ceil(list.size() / rows + ((list.size() % rows == 0) ? 0 : 1));
         int[][] array = new int[rows][cells];
         int index = 0;
-        for (int r = 0; r < rows; r++) {
-            for (int c = 0; c < cells;c++) {
-                if (index >= list.size()) {
-                    array[r][c] = 0;
-                } else {
-                    array[r][c] = list.get(index);
-                    index++;
-                }
-            }
+        rows = 0;
+        for (Integer i : list) {
+            array[rows][index] = i;
+            index++;
+                 if (index == cells) {
+                    rows++;
+                    index = 0;
+                 }
         }
         return array;
     }
