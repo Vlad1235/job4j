@@ -10,11 +10,9 @@ import java.util.List;
 public class ConvertList {
     public List<Integer> convert (List<int[]> list){
     List<Integer> newList= new ArrayList<>();
-    int x;
         for (int[] one:list) {
             for (int two: one) {
-                    x =one[two];
-                    newList.add(x);
+                    newList.add(two);
             }
         }
        return newList;
