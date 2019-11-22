@@ -5,8 +5,8 @@ import java.util.List;
 
 
 public class UserConvert {
-        HashMap<Integer, User> myMap;
     public HashMap<Integer, User> process(List<User> list) {
+        HashMap<Integer, User> myMap = new HashMap<Integer, User>();
             for (User obj: list){
                 myMap.put(obj.getId(),obj);
             }

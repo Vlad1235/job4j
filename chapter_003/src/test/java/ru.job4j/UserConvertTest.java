@@ -22,9 +22,9 @@ public class UserConvertTest {
         userList.add(user2);
         userList.add(user3);
         HashMap<Integer, User> testing =new HashMap<>();
-                userList
-                .stream() //parallelStream()
-                .collect(Collectors.toMap(User::getId, Function.identity()));
+        testing.put(12,user1);
+        testing.put(13,user2);
+        testing.put(14,user3);
         HashMap<Integer,User> result = userConvert.process(userList);
         assertThat(testing,is(result));
     }
