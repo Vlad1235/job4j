@@ -17,6 +17,7 @@ public class SortUserTest {
         User user3 = new User("Vladimir",35);
         User user4 = new User("Sergey",20);
         List<User> userList = new ArrayList<>(Arrays.asList(user1,user2,user3,user4));
+        Collections.sort(userList);
         TreeSet<User> result = sortUser.sort(userList);
          assertThat(userList,is(result));
     }
