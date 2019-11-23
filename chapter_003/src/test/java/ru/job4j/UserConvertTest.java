@@ -1,6 +1,8 @@
 package ru.job4j;
 
 import org.junit.Test;
+import ru.job4j.map.User;
+import ru.job4j.map.UserConvert;
 
 import java.util.ArrayList;
 import java.util.HashMap;

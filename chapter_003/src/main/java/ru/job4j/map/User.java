@@ -1,4 +1,4 @@
-package ru.job4j;
+package ru.job4j.map;
 
 public class User {
     private int id;
@@ -24,6 +24,5 @@ public class User {
     public int getId() {
         return id;
     }
-
 
 }
