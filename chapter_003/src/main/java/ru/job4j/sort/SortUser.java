@@ -1,7 +1,6 @@
 package ru.job4j.sort;
 
 import java.util.List;
-import java.util.Set;
 import java.util.TreeSet;
 
 /**
