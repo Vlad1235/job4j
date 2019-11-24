@@ -32,4 +32,5 @@ public class SortUserTestComparator {
         List<User> result = sortUser.sortByAllFields(userList);
         assertThat(expecting,is(result));
     }
+
 }
